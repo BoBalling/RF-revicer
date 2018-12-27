@@ -1,0 +1,4 @@
+For at kunne sende data ind i nodered fra python, er det nemmest at gå igemmen en csv fil.
+Da dataen ikke kan læses direkte fra da python starter C skript også. Derfor skal det sendes til en neultalt område inden det sendes vidre... 
+Både python og node red kan selv læse/skrive filen så derfor skal der heller ikke bruges addons eller spical kode, for at kunne genneføre
+projektet. lige ledes kan der gemmes station nummer eller laves flere filer sådan at alt data kan komme den vej igemmen 
