@@ -1,7 +1,7 @@
 all: RFRcvCmplxData
 
-RFRcvCmplxData: RCSwitch.o RFRcvCmplxData.o
-    $(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
+RFRcvCmplxData: ../rc-switch/RCSwitch.o RFRcvCmplxData.o
+   -o $@ -lwiringPi
 
 clean:
     $(RM) *.o RFRcvCmplxData
