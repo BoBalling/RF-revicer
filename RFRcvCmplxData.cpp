@@ -24,11 +24,10 @@ https://github.com/claudiuo/raspberrypi/blob/master/433MHz-Arduino-link/RFRcvCmp
   - Connect pin 3 (on the right) of the sensor to +5V.
 */
 
-#include "RCSwitch.h"
+#include <RCSwitch.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-#include <curl/curl.h>
 
 #define MAXBUF 512
 
@@ -119,9 +118,9 @@ int main(int argc, char *argv[]) {
 
                   // real values
                   stationCode = t1;    // numeric code 0-15
-                  temp = t2 / 10.0;    // F
+                  temp = t2 / 10.0;    // C
                   humid = t3 / 10.0;   // %
-                  batt = t4 * 50.0;    // mV
+                  batt = t4; // 50.0;    // mV
                   printf("single values: %u-%.1f-%.1f-%.1f\n", stationCode, temp, humid, batt);
                   data.stationCode = stationCode;
                   data.temp = temp;

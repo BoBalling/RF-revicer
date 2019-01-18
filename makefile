@@ -5,7 +5,7 @@ CXXFLAGS=-DRPI
 all: RFRcvCmplxData
 
 RFRcvCmplxData: ./rc-switch/RCSwitch.o RFRcvCmplxData.o
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi -lcurl
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
 
 clean:
 	$(RM) ../rc-switch/*.o *.o RFRcvCmplxData
