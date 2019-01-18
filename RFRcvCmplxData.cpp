@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     // transmission so treat it as a new value so it gets posted (see if below)
     unsigned int lastValue = 0;
 
-     int PIN = 4;
+     int PIN = 7;
 
      if(wiringPiSetup() == -1)
        return 0;
