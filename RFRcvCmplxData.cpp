@@ -28,6 +28,7 @@ https://github.com/claudiuo/raspberrypi/blob/master/433MHz-Arduino-link/RFRcvCmp
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <curl/curl.h>
 
 #define MAXBUF 512
 
