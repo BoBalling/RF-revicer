@@ -7,5 +7,8 @@ all: RFRcvCmplxData
 RFRcvCmplxData: ./rc-switch/RCSwitch.o RFRcvCmplxData.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
 
+RFRcvCmplxDataMQTT: ./rc-switch/RCSwitch.o RFRcvCmplxDataMQTT.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
+	
 clean:
 	$(RM) ../rc-switch/*.o *.o RFRcvCmplxData
