@@ -24,10 +24,11 @@ https://github.com/claudiuo/raspberrypi/blob/master/433MHz-Arduino-link/RFRcvCmp
   - Connect pin 3 (on the right) of the sensor to +5V.
 */
 
-#include <RCSwitch.h>
+#include "RCSwitch.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <mosquitto.h>
 
 #define MAXBUF 512
 
@@ -188,11 +189,6 @@ void mqttPublish() {
     if (res != MOSQ_ERR_SUCCESS) {
         publishSuccess = 0;
     }
-    // post to db with the posted flag according to mqtt publish success
-    if(dbConnectionOK) {
-        // TODO save to db later
-        postDb(publishSuccess);
-    }
 }
 // mosquitto related methods
 /* Initialize a mosquitto client. */
@@ -286,11 +282,7 @@ int postMosquitto(struct mosquitto *m) {
     size_t topic_sz = 16;
     char topic[topic_sz];
     size_t topiclen = 0;
-    if(isMotion) {
-        topiclen = snprintf(topic, topic_sz, "%s/%u/%s",  TOPIC_STATIONS, data.stationCode, TOPIC_MOTION);
-    } else {
-        topiclen = snprintf(topic, topic_sz, "%s/%u/%s",  TOPIC_STATIONS, data.stationCode, TOPIC_SENSORS);
-    }
+    topiclen = snprintf(topic, topic_sz, "%s/%u/%s",  TOPIC_STATIONS, data.stationCode, TOPIC_SENSORS);
 //    if (topic_sz < topiclen) { die("snprintf topic\n"); }
 
 
