@@ -81,7 +81,7 @@ size_t function_pt(char *ptr, size_t size, size_t nmemb, void *stream) {
     responseCode = atoi(ptr);
     return size * nmemb;
 }
-
+unsigned int value = 0; //NEW
 int main(int argc, char *argv[]) {
 
     float startTime = clock();
@@ -115,7 +115,7 @@ mosq = init();
 
       if (mySwitch.available()) {
 
-        unsigned int value = mySwitch.getReceivedValue();
+        value = mySwitch.getReceivedValue(); //unsigned int value cut out 
 
         float crtTime = clock();
 
